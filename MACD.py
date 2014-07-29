@@ -8,6 +8,7 @@ Created on Tue Jul 29 10:28:35 2014
 from pandas.io.data import DataReader
 import matplotlib.pyplot as plt
 import datetime
+import macdFun
 import pandas as pd
 flag = False;
 msft = DataReader("ITC.NS", "yahoo", datetime.datetime(2007, 1, 1),
