@@ -17,17 +17,17 @@ def macd(dataFrame):
     for index, row in dataFrame.iterrows():
         if count > 51:
             if (float(row['30_MA_Open']) > float(row['150_MA_Open'])) and (not flag):
-                print "ok" 
-                dataFrame['trigger'][count] = row['Open']
+                print "ok" + str(count) 
+                dataFrame['trigger'][count] = "True"
                 flag = True
-            elif (float(row['30_MA_Open']) > float(row['150_MA_Open'])) and (flag):
+            elif (float(row['30_MA_Open']) < float(row['150_MA_Open'])) and (flag):
                 flag = False
         count = count + 1
     for index, row in dataFrame.iterrows():
-        if row['trigger']!="NaN":
+        if row['trigger'] == "True":
             print row['trigger']
             count = count + 1 
 #push the details in an array
             a.insert(0,{index})
-            print str(count)
+            print 'count '+str(count)
     return a
